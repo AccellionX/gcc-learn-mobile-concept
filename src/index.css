@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #0B2545;
+  --color-navy-light: #163A5F;
+  --color-navy-muted: #1E4A73;
+  --color-teal: #13A89E;
+  --color-teal-dark: #0E8A82;
+  --color-teal-soft: #E6F7F5;
+  --color-cream: #F7F5F2;
+  --color-cream-dark: #EDEAE5;
+  --color-ink: #1A1A1A;
+  --color-muted: #6B7280;
+  --color-border: #E5E2DC;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-arabic: "IBM Plex Sans Arabic", "Inter", system-ui, sans-serif;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: #0a1628;
+  color: var(--color-ink);
+  overflow: hidden;
+}
+
+html[dir="rtl"] body,
+html[lang="ar"] body,
+[dir="rtl"] {
+  font-family: var(--font-arabic);
+}
+
+/* Hide scrollbars inside phone but keep scroll */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes slide-up {
+  from { transform: translateY(100%); opacity: 0.6; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slide-down {
+  from { transform: translateY(-120%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scale-in {
+  from { transform: scale(0.92); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes splash-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.35s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+}
+
+.animate-slide-down {
+  animation: slide-down 0.4s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.3s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+}
+
+.animate-splash {
+  animation: splash-pulse 1.5s ease-in-out infinite;
+}
+
+.btn-press:active {
+  transform: scale(0.97);
+  opacity: 0.9;
+}
+
+.safe-bottom {
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
+}
